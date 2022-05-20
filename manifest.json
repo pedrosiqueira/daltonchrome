@@ -1,0 +1,27 @@
+{
+   "action": {
+      "default_icon": "img/favicon.png",
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [
+      {
+         "js": [
+            "js/vendor/jquery-3.6.0.min.js",
+            "js/script.js"
+         ],
+         "matches": [
+            "<all_urls>"
+         ]
+      }
+   ],
+   "description": "TCC Caroline Cardoso",
+   "icons": {
+      "128": "img/favicon.png"
+   },
+   "manifest_version": 3,
+   "name": "TCC Caroline Cardoso",
+   "permissions": [
+      "storage"
+   ],
+   "version": "0.3"
+}
