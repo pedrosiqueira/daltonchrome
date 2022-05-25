@@ -18,7 +18,7 @@ function callback(request, sender, retorno) {
     console.log(request)
     console.log(sender)
 
-    $("body").css("background-color", "black");
+    $("body").css("background-color", "yellow");
 
     retorno({ url: window.location.href, resposta: "sucesso!" });
 }

@@ -4,10 +4,6 @@ function start() {
     $("#meubotao").click(umafuncao)
 }
 
-function ativar(){
-    $("#MeuSwitch")
-}
-
 
 async function umafuncao() {
 

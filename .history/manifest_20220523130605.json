@@ -1,7 +1,6 @@
 {
    "action": {
       "default_icon": "img/favicon.png",
-      "default_title": "ColorBlindness support",
       "default_popup": "popup.html"
    },
    "content_scripts": [
@@ -20,7 +19,7 @@
       "128": "img/favicon.png"
    },
    "manifest_version": 3,
-   "name": "ColorBlindness support",
+   "name": "TCC Caroline Cardoso",
    "permissions": [
       "storage"
    ],
