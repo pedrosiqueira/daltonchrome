@@ -2,21 +2,29 @@ start()
 
 function start() {
     $("#meubotao").click(umafuncao)
+
+    chrome.storage.sync.get("cor", function ({ cor }) {
+        $("#cores").val(cor);
+    });
+
+    $('#cores').on('change', function () {
+        var cor = $(this).find(":selected").val();
+        umafuncao(cor)
+    });
 }
 
-function ativar(){
+function ativar() {
     $("#MeuSwitch")
 }
 
 
-async function umafuncao() {
+async function umafuncao(cor) {
 
     // obtém a aba atual
     [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     // envia mensagem para a aba atual
-    chrome.tabs.sendMessage(currentTab.id, { nome: "Carol", curso: "TADS", orientador: "pedro" }, callback);
-
+    chrome.tabs.sendMessage(currentTab.id, { cor: cor }, callback);
 
 }
 
