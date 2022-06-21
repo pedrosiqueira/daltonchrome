@@ -12,7 +12,7 @@ function start() {
     });
 
     $('#flexSwitchCheckChecked').on('click', function(){
-        var v = $(this).find("checked").val();
+        var v = $(this).find(":checked").val();
         onoff(v)
     });
 
@@ -33,7 +33,7 @@ async function getcolor(id) {
 }
 
 
-async function onoff(v) {
+async function onof(v) {
 
     // obtém a aba atual
     [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });

@@ -1,9 +1,10 @@
 start()
 
 function start() {
+    $("#meubotao").click(umafuncao)
 
-    chrome.storage.sync.get("v", function ({ v }) {
-        $("#flexSwitchCheckChecked").val(v);
+    chrome.storage.sync.get("cor", function ({ cor }) {
+        $("#cores").val(cor);
     });
 
     $('#onemorebutton').on('click', function () {
@@ -12,7 +13,7 @@ function start() {
     });
 
     $('#flexSwitchCheckChecked').on('click', function(){
-        var v = $(this).find("checked").val();
+        var v = $(this).find(":checked").val();
         onoff(v)
     });
 
@@ -21,6 +22,19 @@ function start() {
 function ativar() {
     $("#MeuSwitch")
 }
+
+
+
+async function umafuncao(cor) {
+
+    // obtém a aba atual
+    [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+    // envia mensagem para a aba atual
+    chrome.tabs.sendMessage(currentTab.id, { cor: cor }, callback);
+
+}
+
 
 async function getcolor(id) {
 
@@ -33,7 +47,7 @@ async function getcolor(id) {
 }
 
 
-async function onoff(v) {
+async function onof(v) {
 
     // obtém a aba atual
     [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });

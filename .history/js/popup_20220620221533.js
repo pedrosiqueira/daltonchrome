@@ -12,7 +12,7 @@ function start() {
     });
 
     $('#flexSwitchCheckChecked').on('click', function(){
-        var v = $(this).find("checked").val();
+        var v = $(this).find(":checked").val();
         onoff(v)
     });
 

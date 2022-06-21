@@ -22,14 +22,19 @@
     </div>
 
     <div class="p-3">
+        <label for="cores">Escolha uma cor para o background</label>
+        <br>
+        <select name="cores" id="cores">
+            <option value="#"> </option>
+            <option value="red">Vermelho</option>
+            <option value="green">Verde</option>
+            <option value="blue">Azul</option>
+        </select>
     </div>
-    <input type="text" id="umidqualquer">Digite um Id: </input>
-    <button id="onemorebutton" class="btn btn-primary">teste id</button>
-
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
-        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-      </div>
+    <br> <br><br>
+    <alert id="alert" class="alert-dark form-text">Obs. Este é um protótipo de extensão em desenvolvimento.<br>
+    Toda e qualquer edição relacionada a css das páginas não é permanente.
+    </alert>
 
     <script src="js/vendor/jquery-3.6.0.min.js"></script>
     <script src="js/vendor/bootstrap.bundle.min.js"></script>

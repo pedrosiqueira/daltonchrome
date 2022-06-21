@@ -1,19 +1,20 @@
 start()
 
 function start() {
+    $("#meubotao").click(umafuncao)
 
-    chrome.storage.sync.get("v", function ({ v }) {
-        $("#flexSwitchCheckChecked").val(v);
+    chrome.storage.sync.get("cor", function ({ cor }) {
+        $("#cores").val(cor);
     });
 
-    $('#onemorebutton').on('click', function () {
+    $('#cores').on('change', function () {
+        var cor = $(this).find(":selected").val();
+        umafuncao(cor)
+    });
+
+    $('#onemorebutton').on('hover:', function () {
         var id = $('#umidqualquer').val();
         getcolor(id)
-    });
-
-    $('#flexSwitchCheckChecked').on('click', function(){
-        var v = $(this).find("checked").val();
-        onoff(v)
     });
 
 }
@@ -21,6 +22,19 @@ function start() {
 function ativar() {
     $("#MeuSwitch")
 }
+
+
+
+async function umafuncao(cor) {
+
+    // obtém a aba atual
+    [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+    // envia mensagem para a aba atual
+    chrome.tabs.sendMessage(currentTab.id, { cor: cor }, callback);
+
+}
+
 
 async function getcolor(id) {
 
@@ -31,18 +45,6 @@ async function getcolor(id) {
     chrome.tabs.sendMessage(currentTab.id, { id: id }, callback);
 
 }
-
-
-async function onoff(v) {
-
-    // obtém a aba atual
-    [currentTab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-    // envia mensagem para a aba atual
-    chrome.tabs.sendMessage(currentTab.id, { v: v }, callback);
-
-}
-
 
 
 // funcao que recebe a resposta da mensagem que foi enviada para alguma aba
