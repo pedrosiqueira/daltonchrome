@@ -4,6 +4,10 @@ start()
 
 
 function start() {
+
+    document.onmouseover = function (e){
+        e.target.style.backgroundColor="rgb(255,215,0)"
+        }
     
     window.addEventListener('click', getcolorofelement);
 
