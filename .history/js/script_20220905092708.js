@@ -3,8 +3,6 @@
 
 
 function start() {
-    chrome.action.setBadgeText({text: 'ON'});
-    chrome.action.setBadgeBackgroundColor({color: 'green'});
 
     document.onmouseover = function (e){
         e.target.style.backgroundColor="rgb(255,215,0)"
